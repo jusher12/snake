@@ -5,8 +5,11 @@ use piston_window::types::Colors;
 
 const BLOCK_SIZE: f64 = 25.0;
 
-// Public function that tfakes a coordinate and casts to a float
-// then multiplies by block size.
+/** Converts a coordinate to a float
+ * and multiplies it by block size.
+ * @param game_coord The given coordinate.
+ * @return the scaled coordinate 
+ */
 pub fn to_coord(game_coord: i32) -> f64 {
     (game_coord as f64) * BLOCK_SIZE
 }
