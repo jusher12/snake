@@ -1,7 +1,7 @@
 // Imports for rectangle window and graphics context
 use piston_window::{rectangle, Context, G2d};
 // Import for color components.
-use piston_window::types::Colors;
+use piston_window::types::Color;
 
 const BLOCK_SIZE: f64 = 25.0;
 
