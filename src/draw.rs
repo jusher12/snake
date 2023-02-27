@@ -14,6 +14,10 @@ pub fn to_coord(game_coord: i32) -> f64 {
     (game_coord as f64) * BLOCK_SIZE
 }
 
+pub fn to_coord_u32(game_coord: i32) -> u32 {
+    to_coord(game_coord) as u32
+}
+
 /**
  * Draws a block of the snake.
  * @param color Color of the block.
@@ -58,7 +62,7 @@ pub fn draw_rectangle(
     // Call rectangle function
     rectangle(
         color, 
-        [gui_x, gui_y, BLOCK_SIZE  * (width as f64), BLOCK_SIZE * (width as f64)],
+        [gui_x, gui_y, BLOCK_SIZE  * (width as f64), BLOCK_SIZE * (height as f64)],
         con.transform,
         g,
     );
