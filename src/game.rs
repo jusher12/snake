@@ -99,7 +99,7 @@ impl Game{
     pub fn check_eating(&mut self) { //Checks if snakes head overlaps food
         let (head_x, head_y): (i32, i32) = self.snake.head_position();
         if self.food_exists && self.food_x == head_x && self.food_y == head_y {
-            self.food_exists == false;
+            self.food_exists = false;
             self.snake.restore_tail();
         }
     }
@@ -116,11 +116,11 @@ impl Game{
     pub fn add_food(&mut self) {
         let mut rng = thread_rng();
         
-        let mut new_x = rng.gen_range(1..self.width); // New x coord
-        let mut new_y = rng.gen_range(1..self.height); // New y coord
+        let mut new_x = rng.gen_range(1..self.width - 1); // New x coord
+        let mut new_y = rng.gen_range(1..self.height - 1); // New y coord
         while self.snake.overlap_tail(new_x, new_y) { // Update coords if they overlap snake
-            let mut new_x = rng.gen_range(1..self.width);
-            let mut new_y = rng.gen_range(1..self.height);
+            new_x = rng.gen_range(1..self.width);
+            new_y = rng.gen_range(1..self.height);
         }
 
         self.food_x = new_x;
